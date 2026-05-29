@@ -8,6 +8,7 @@
   --clr-error: #d73c3c;
 
   --radius: 1rem;
+
   --space-xs: 0.5rem;
   --space-sm: 1rem;
   --space-md: 1.5rem;
@@ -23,13 +24,13 @@
 }
 
 body {
+  margin: 0;
   min-block-size: 100vh;
   display: grid;
   place-items: center;
-  margin: 0;
   padding: var(--space-sm);
-  font-family: sans-serif;
-  background: var(--clr-bg);
+  font-family: Arial, sans-serif;
+  background-color: var(--clr-bg);
 }
 
 main {
@@ -40,13 +41,13 @@ main {
   inline-size: min(100%, 43.75rem);
   margin-inline: auto;
   padding: clamp(1.5rem, 4vw, 2rem);
+  background-color: var(--clr-white);
   border-radius: var(--radius);
-  background: var(--clr-white);
   position: relative;
 }
 
-h1 {
-  margin-block-end: var(--space-lg);
+h2 {
+  margin: 0 0 var(--space-lg);
   color: var(--clr-text);
 }
 
@@ -65,13 +66,13 @@ legend {
   display: block;
   margin-block-end: var(--space-xs);
   color: var(--clr-text);
-  font-weight: 600;
+  font-weight: 700;
 }
 
 fieldset {
-  border: none;
-  padding: 0;
   margin: 0 0 var(--space-md);
+  padding: 0;
+  border: none;
 }
 
 input[type="text"],
@@ -129,7 +130,7 @@ button {
   padding: var(--space-sm);
   border: none;
   border-radius: 0.5rem;
-  background: var(--clr-green);
+  background-color: var(--clr-green);
   color: var(--clr-white);
   font: inherit;
   font-weight: 700;
@@ -139,7 +140,7 @@ button {
 
 button:hover,
 button:focus-visible {
-  background: var(--clr-green-dark);
+  background-color: var(--clr-green-dark);
 }
 
 .error-message {
@@ -162,13 +163,25 @@ button:focus-visible {
   transform: translateX(-50%);
   padding: var(--space-sm) var(--space-lg);
   border-radius: 0.5rem;
-  background: var(--clr-text);
+  background-color: var(--clr-text);
   color: var(--clr-white);
   display: none;
 }
 
 .success-toast.show {
   display: block;
+}
+
+.sr-only {
+  position: absolute;
+  inline-size: 1px;
+  block-size: 1px;
+  margin: -1px;
+  padding: 0;
+  overflow: hidden;
+  white-space: nowrap;
+  clip: rect(0, 0, 0, 0);
+  border: 0;
 }
 
 @media (width <= 37.5rem) {
