@@ -25,30 +25,35 @@
 
 body {
   margin: 0;
-  min-block-size: 100vh;
-  display: grid;
-  place-items: center;
-  padding: var(--space-sm);
+  min-height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 2rem 1rem;
   font-family: Arial, sans-serif;
   background-color: var(--clr-bg);
 }
 
 main {
-  inline-size: 100%;
+  width: 100%;
+  display: flex;
+  justify-content: center;
 }
 
 .contact-form {
-  inline-size: min(100%, 43.75rem);
-  margin-inline: auto;
-  padding: clamp(1.5rem, 4vw, 2rem);
+  width: 100%;
+  max-width: 46rem;
   background-color: var(--clr-white);
+  padding: 2rem;
   border-radius: var(--radius);
   position: relative;
 }
 
 h2 {
-  margin: 0 0 var(--space-lg);
+  margin-top: 0;
+  margin-bottom: var(--space-lg);
   color: var(--clr-text);
+  font-size: 2rem;
 }
 
 .form-row {
@@ -57,39 +62,43 @@ h2 {
 }
 
 .form-group {
-  flex: 1;
-  margin-block-end: var(--space-md);
+  width: 100%;
+  margin-bottom: var(--space-md);
 }
 
 label,
 legend {
   display: block;
-  margin-block-end: var(--space-xs);
+  margin-bottom: var(--space-xs);
   color: var(--clr-text);
   font-weight: 700;
 }
 
+span {
+  color: var(--clr-green);
+}
+
 fieldset {
-  margin: 0 0 var(--space-md);
-  padding: 0;
   border: none;
+  padding: 0;
+  margin: 0 0 var(--space-md);
 }
 
 input[type="text"],
 input[type="email"],
 textarea {
-  inline-size: 100%;
-  padding: var(--space-sm);
+  width: 100%;
+  padding: 1rem;
   border: 1px solid var(--clr-border);
   border-radius: 0.5rem;
-  font: inherit;
+  font-size: 1rem;
+  font-family: inherit;
   outline: none;
-  transition:
-    border-color var(--transition-speed),
-    background-color var(--transition-speed);
+  transition: border-color var(--transition-speed);
 }
 
-input:focus,
+input[type="text"]:focus,
+input[type="email"]:focus,
 textarea:focus {
   border-color: var(--clr-green);
 }
@@ -100,102 +109,78 @@ textarea:focus {
 }
 
 .radio-option {
-  flex: 1;
+  width: 100%;
   display: flex;
   align-items: center;
   gap: 0.75rem;
-  padding: var(--space-sm);
+  padding: 1rem;
   border: 1px solid var(--clr-border);
   border-radius: 0.5rem;
   cursor: pointer;
 }
 
-.radio-option input,
-.checkbox-group input {
-  accent-color: var(--clr-green);
+.radio-option input {
+  width: auto;
 }
 
 .checkbox-group {
-  margin-block-end: var(--space-md);
+  margin-bottom: var(--space-md);
 }
 
 .checkbox-group label {
   display: flex;
   align-items: center;
   gap: 0.75rem;
+  cursor: pointer;
 }
 
 button {
-  inline-size: 100%;
-  padding: var(--space-sm);
+  width: 100%;
   border: none;
   border-radius: 0.5rem;
   background-color: var(--clr-green);
   color: var(--clr-white);
-  font: inherit;
+  padding: 1rem;
+  font-size: 1rem;
   font-weight: 700;
   cursor: pointer;
   transition: background-color var(--transition-speed);
 }
 
-button:hover,
-button:focus-visible {
+button:hover {
   background-color: var(--clr-green-dark);
 }
 
 .error-message {
   display: none;
-  margin-block-start: var(--space-xs);
+  margin-top: var(--space-xs);
   color: var(--clr-error);
-  font-size: clamp(0.85rem, 2vw, 0.875rem);
-}
-
-.error input,
-.error textarea,
-.error .radio-option {
-  border-color: var(--clr-error);
+  font-size: 0.875rem;
 }
 
 .success-toast {
-  position: absolute;
-  inset-block-start: -4.5rem;
-  inset-inline-start: 50%;
-  transform: translateX(-50%);
-  padding: var(--space-sm) var(--space-lg);
-  border-radius: 0.5rem;
-  background-color: var(--clr-text);
-  color: var(--clr-white);
   display: none;
-}
-
-.success-toast.show {
-  display: block;
 }
 
 .sr-only {
   position: absolute;
-  inline-size: 0.0625rem;
-  block-size: 0.0625rem;
-  margin: clamp(-0.0625rem, -0.1vw, -0.0625rem);
+  width: 0.0625rem;
+  height: 0.0625rem;
   padding: 0;
+  margin: -0.0625rem;
   overflow: hidden;
-  white-space: nowrap;
   clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
   border: 0;
 }
 
-@media (width <= 37.5rem) {
+@media (max-width: 37.5rem) {
   .form-row,
   .radio-group {
     flex-direction: column;
   }
-}
 
-@media (prefers-reduced-motion: reduce) {
-  *,
-  *::before,
-  *::after {
-    transition-duration: 0s;
-    animation-duration: 0s;
+  .contact-form {
+    padding: 1.5rem;
   }
 }
