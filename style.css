@@ -13,7 +13,7 @@
   --space-md: 1.5rem;
   --space-lg: 2rem;
 
-  --transition: 200ms ease;
+  --transition-speed: 200ms;
 }
 
 *,
@@ -84,8 +84,8 @@ textarea {
   font: inherit;
   outline: none;
   transition:
-    border-color var(--transition),
-    background-color var(--transition);
+    border-color var(--transition-speed),
+    background-color var(--transition-speed);
 }
 
 input:focus,
@@ -134,7 +134,7 @@ button {
   font: inherit;
   font-weight: 700;
   cursor: pointer;
-  transition: background-color var(--transition);
+  transition: background-color var(--transition-speed);
 }
 
 button:hover,
@@ -146,7 +146,7 @@ button:focus-visible {
   display: none;
   margin-block-start: var(--space-xs);
   color: var(--clr-error);
-  font-size: 0.875rem;
+  font-size: clamp(0.85rem, 2vw, 0.875rem);
 }
 
 .error input,
@@ -182,7 +182,7 @@ button:focus-visible {
   *,
   *::before,
   *::after {
-    transition: none !important;
-    scroll-behavior: auto !important;
+    transition-duration: 0s;
+    animation-duration: 0s;
   }
 }
