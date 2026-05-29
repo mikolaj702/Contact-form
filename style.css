@@ -174,9 +174,9 @@ button:focus-visible {
 
 .sr-only {
   position: absolute;
-  inline-size: 1px;
-  block-size: 1px;
-  margin: -1px;
+  inline-size: 0.0625rem;
+  block-size: 0.0625rem;
+  margin: clamp(-0.0625rem, -0.1vw, -0.0625rem);
   padding: 0;
   overflow: hidden;
   white-space: nowrap;
